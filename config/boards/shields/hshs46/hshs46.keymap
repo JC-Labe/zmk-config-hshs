@@ -25,6 +25,37 @@
 
 
 / {
+        combos {
+                compatible = "zmk,combos";
+                
+                combo_e_acute {
+                    timeout-ms = <50>;
+                    key-positions = <3 4>;
+                    bindings = <&kp N2>;      /* Envoie "é" sur un OS en FR */
+                    layers = <0 1 2>;         /* ACTIF UNIQUEMENT SUR QWERTY, DVORAK, COLEMAK */
+                };
+                combo_e_grave {
+                            timeout-ms = <50>;
+                            key-positions = <2 3>;    /* Touches physiques W et E (Z et E en Azerty) */
+                            bindings = <&kp N7>;      /* Envoie "è" sur un OS en FR */
+                            layers = <0 1 2>;
+                };
+        /* Combo pour À (Touche 0 sur AZERTY) */
+                combo_a_grave {
+                    timeout-ms = <50>;
+                    key-positions = <1 2>;    /* Touches physiques Q et W (A et Z en Azerty) */
+                    bindings = <&kp N0>;      /* Envoie "à" */
+                    layers = <0 1 2>;
+                };
+        
+        /* Combo pour Ç (Touche 9 sur AZERTY) */
+                combo_c_cedilla {
+                    timeout-ms = <50>;
+                    key-positions = <27 28>;  /* Touches physiques C et V */
+                    bindings = <&kp N9>;      /* Envoie "ç" */
+                    layers = <0 1 2>;
+                };
+            };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -37,9 +68,9 @@
  *                                 |  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  ALT  |  GUI  |
  */
                         bindings = <
-&kp  GRAVE    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
+&kp  N4    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  SLASH    &kp  SQT
+&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  N        &kp  M        &kp  COMMA    &kp  LS(SEMI)      &kp  SLASH    &kp  SQT
                                                         &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI
                         >;
 
@@ -91,7 +122,7 @@
  *                                 |       |       |       |       |---| ADJ_L |       |       |       |
  */
                         bindings = <
-&kp  Copy     &kp  N1       &kp  N2       &kp  N3       &kp  N4       &kp  N5                                                                        &kp   N6      &kp   N7      &kp   N8      &kp   N9      &kp  N0       &trans
+&kp  Copy     &kp  LS(N1)   &kp  LS(N2)   &kp  LS(N3)   &kp  LS(N4)   &kp  LS(N5)                                                                    &kp   LS(N6)  &kp  LS(N7)  &kp   LS(N8)  &kp   LS(N9)  &kp  LS(N0)   &trans
 &kp  Cut      &kp  LGUI     &kp  LALT     &kp  LCTRL    &kp  LSHFT    &kp  Paste                                                                     &kp   PG_UP   &kp  LEFT    &kp   UP      &kp   DOWN    &kp  RIGHT    &kp PG_DN
 &trans        &kp  F1       &kp  F2       &kp  F3       &kp  F4       &kp  F5       &kp Undo                                           &kp  Redo     &kp   F6      &kp  F7      &kp   F8      &kp   F9      &kp  F10      &kp RCTRL
                                                         &trans        &trans        &trans        &trans                 &mo ADJ_L     &trans        &trans        &trans
@@ -109,9 +140,9 @@
  *                                 |       |       |       |  ADJ_L |---|      |       |       |       |
  */
                         bindings = <
-&kp  INS      &kp  EXCL     &kp  AT       &kp  HASH     &kp  DOLLAR   &kp  PERCENT                                                                   &kp  CARET    &kp  AMPS     &kp  ASTRK    &kp  LPAR     &kp  RPAR     &kp DEL
-&none         &kp  BSLH     &kp  MINUS    &kp  EQUAL    &kp  LBKT     &kp  RBKT                                                                      &kp  HOME     &kp  RSHFT    &kp  RCTRL    &kp  LALT     &kp  RGUI     &kp END
-&trans        &kp  PIPE     &kp  UNDER    &kp  PLUS     &kp  LBRC     &kp  RBRC     &sk  RALT                                          &kp K_APP     &kp  C_MUTE   &kp  C_VOL_DN &kp  C_VOL_UP &kp  C_PP     &none         &kp RCTRL
+&kp  INS      &kp  EXCL     &kp  RA(N0)   &kp  RA(N3)   &kp  DOLLAR   &kp  PERCENT                                                                   &kp  CARET    &kp  AMPS     &kp  ASTRK    &kp  LPAR     &kp  RPAR     &kp DEL
+&none         &kp  BSLH     &kp  MINUS    &kp  EQUAL    &kp  RA(N5)   &kp  RA(MINUS)                                                                 &kp  HOME     &kp  RSHFT    &kp  RCTRL    &kp  LALT     &kp  RGUI     &kp END
+&trans        &kp  RA(N6)   &kp  UNDER    &kp  PLUS     &kp  RA(N4)   &kp  RA(EQUAL) &sk  RALT                                         &kp K_APP     &kp  C_MUTE   &kp  C_VOL_DN &kp  C_VOL_UP &kp  C_PP     &none         &kp RCTRL
                                                         &trans        &trans        &trans       &mo  ADJ_L               &trans       &trans        &trans        &trans
                         >;
 
