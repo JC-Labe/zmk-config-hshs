@@ -68,9 +68,9 @@
  *                                 |  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  ALT  |  GUI  |
  */
                         bindings = <
-&kp  N4    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
-&kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&kp  LCTRL    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  N        &kp  M        &kp  COMMA    &kp  LS(SEMI)      &kp  SLASH    &kp  SQT
+&kp  N7       &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
+&kp  N2       &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
+&mt LCTRL N4  &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  M        &kp  N        &kp  COMMA    &kp  LS(SEMI)      &kp  SLASH    &kp  SQT
                                                         &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI
                         >;
 
