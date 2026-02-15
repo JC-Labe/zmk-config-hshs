@@ -1,7 +1,0 @@
-&pro_micro_spi {
-    status = "okay";
-};
-
-nice_view_spi: &pro_micro_spi {
-    compatible = "nordic,nrf-spim";
-};
