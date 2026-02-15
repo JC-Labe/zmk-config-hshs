@@ -43,8 +43,15 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(3,5)                   RC(3,6
     };
 
 };
+/* Désactiver l'ancien système OLED pour libérer la ligne */
+&pro_micro_i2c {
+    status = "disabled";
+};
+
+/* Activer le SPI avec la bonne broche de sélection (CS = 1) */
 &pro_micro_spi {
     status = "okay";
+    cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;
 };
 
 nice_view_spi: &pro_micro_spi {
