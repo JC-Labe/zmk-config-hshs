@@ -44,11 +44,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(3,5)                   RC(3,6
     };
 
     vbatt: vbatt {
-            compatible = "zmk,battery-voltage-divider";
+            compatible = "zmk,battery-nrf-vddh";
             label = "BATTERY";
-            io-channels = <&adc 4>; /* AIN7 = P0.31 sur Nice!Nano */
-            output-ohms = <2000000>;
-            full-ohms = <(2000000 + 806000)>;
     };
 
 
