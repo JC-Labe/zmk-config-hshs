@@ -15,6 +15,7 @@
 include:
   - board: nice_nano@2
     shield: hshs46_left nice_view_adapter nice_view
+    snippet: zmk-usb-logging
   - board: nice_nano@2
     shield: hshs46_right nice_view_adapter nice_view
   - board: nice_nano@2
