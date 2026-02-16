@@ -10,7 +10,7 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
-        zmk,battery = &vbatt;
+        //zmk,battery = &vbatt;
     };
 
     default_transform: keymap_transform_0 {
@@ -42,17 +42,17 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(3,5)                   RC(3,6
             ;
 
     };
-
+/*
     vbatt: vbatt {
             compatible = "zmk,battery-nrf-vddh";
             label = "BATTERY";
     };
-
+*/
 
 };
 
 
-/* Configuration Pin Control : On map le SPI sur les broches de l'OLED */
+/* Configuration Pin Control : On map le SPI sur les broches de l'OLED
 &pinctrl {
     spi0_default: spi0_default {
         group1 {
@@ -94,3 +94,4 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(3,5)                   RC(3,6
 nice_view_spi: &pro_micro_spi {
     compatible = "nordic,nrf-spim";
 };
+*/
