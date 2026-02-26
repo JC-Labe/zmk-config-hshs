@@ -25,6 +25,16 @@
 
 
 / {
+        behaviors {
+                    dot_semi: dot_semi_morph {
+                            compatible = "zmk,behavior-mod-morph";
+                            label = "DOT_SEMI";
+                            #binding-cells = <0>;
+                            /* Action 1 (Sans Maj) = Point / Action 2 (Avec Maj) = Point-Virgule */
+                            bindings = <&kp LS(COMMA)>, <&kp COMMA>;
+                            mods = <(MOD_LSFT|MOD_RSFT)>;
+                    };
+        };
         combos {
                 compatible = "zmk,combos";
                 
