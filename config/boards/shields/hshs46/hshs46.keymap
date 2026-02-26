@@ -62,6 +62,27 @@
                     bindings = <&kp LBKT>;    /* LBKT (Crochet Gauche US) = ^¨ en AZERTY */
                     layers = <0 1 2>;
                 };
+                /* J + K = ( (parenthèse ouvrante) */
+                combo_paren_open {
+                    timeout-ms = <50>;
+                    key-positions = <19 20>;
+                    bindings = <&kp N5>;
+                    layers = <0 1 2>;
+                };
+                /* K + L = ) (parenthèse fermante) */
+                combo_paren_close {
+                    timeout-ms = <50>;
+                    key-positions = <20 21>;
+                    bindings = <&kp MINUS>;
+                    layers = <0 1 2>;
+                };
+                /* A + Z = € (euro, AltGr+E en AZERTY) */
+                combo_euro {
+                    timeout-ms = <50>;
+                    key-positions = <13 25>;
+                    bindings = <&kp RA(E)>;
+                    layers = <0 1 2>;
+                };
             };
         keymap {
                 compatible = "zmk,keymap";
@@ -144,13 +165,13 @@
  * -------------------------------------------------------------------------------------------------------------------------------------
  * | Copie |   1   |   2   |   3   |   4   |   5   |-----------------------------------|   6   |   7   |   8   |   9   |   0   |       |
  * | Coupe |  Win  |  Alt  |  Ctl  |  Maj  | Colle |-----------------------------------| PgHt  | Gauche| Haut  |  Bas  | Droite| PgBas |
- * |       |  F1   |  F2   |  F3   |  F4   |  F5   | Annul |------------------| Refaire|  F6   |  F7   |  F8   |  F9   |  F10  |  Ctl  |
+ * |       |  F1   |  F2   |  F3   |  F4   |  F5   | Annul |------------------| Refaire|  F6   |  F7   |  F8   |  F9   |  F10  |   `   |
  *                                 |       |       |       |      |---|  ADJ  |        |       |       |
  */
                         bindings = <
 &kp  Copy     &kp  LS(N1)   &kp  LS(N2)   &kp  LS(N3)   &kp  LS(N4)   &kp  LS(N5)                                                                    &kp   LS(N6)  &kp  LS(N7)  &kp   LS(N8)  &kp   LS(N9)  &kp  LS(N0)   &trans
 &kp  Cut      &kp  LGUI     &kp  LALT     &kp  LCTRL    &kp  LSHFT    &kp  Paste                                                                     &kp   PG_UP   &kp  LEFT    &kp   UP      &kp   DOWN    &kp  RIGHT    &kp PG_DN
-&trans        &kp  F1       &kp  F2       &kp  F3       &kp  F4       &kp  F5       &kp Undo                                           &kp  Redo     &kp   F6      &kp  F7      &kp   F8      &kp   F9      &kp  F10      &kp RCTRL
+&trans        &kp  F1       &kp  F2       &kp  F3       &kp  F4       &kp  F5       &kp Undo                                           &kp  Redo     &kp   F6      &kp  F7      &kp   F8      &kp   F9      &kp  F10      &kp RA(N7)
                                                         &trans        &trans        &trans        &trans                 &mo ADJ_L     &trans        &trans        &trans
                         >;
 
@@ -160,24 +181,24 @@
 sym_layer {
 /* CODE ZMK (QWERTY)
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |  INS  | SLASH | RA(N0)| RA(N3)|  RBKT | LS(') |-----------------------------------|  LBKT |  N1   | LS(\) |  N5   | MINUS |  DEL  |
- * | none  | RA(N8)|  N6   | EQUAL | RA(N5)| RA(-) |-----------------------------------|  HOME | RSHFT | RCTRL | LALT  | RGUI  |  END  |
- * | trans | RA(N6)|  N8   | LS(=) | RA(N4)| RA(=) | sk AG |-------------------| K_APP | C_MUT | Vol-  | Vol+  | Play  | none  | RCTRL |
- * |       |       |       |       |       |       |  ADJ  |
+ * |   "   | SLASH | RA(N0)| RA(N3)|  RBKT | LS(') |-----------------------------------|  LBKT |  N1   | LS(\) |  N5   | MINUS |  DEL  |
+ * |  < >  | RA(N8)|  N6   | EQUAL | RA(N5)| RA(-) |-----------------------------------|  HOME | RSHFT | RCTRL | LALT  | RGUI  |  END  |
+ * | trans | RA(N6)|  N8   | LS(=) | RA(N4)| RA(=) | sk AG |-------------------| K_APP | C_MUT | Vol-  | Vol+  | Play  |   ~   | RCTRL |
+ *                 |       |       |       |       |       |           |  ADJ  |
  */
 
 /* RESULTAT ECRAN (AZERTY)
  * -------------------------------------------------------------------------------------------------------------------------------------
- * |  INS  |   !   |   @   |   #   |   $   |   %   |-----------------------------------|   ^   |   &   |   *   |   (   |   )   | Supp  |
- * |       |   \   |   -   |   =   |   [   |   ]   |-----------------------------------| Debut |  Maj  |  Ctl  |  Alt  |  Win  |  Fin  |
- * |       |   |   |   _   |   +   |   {   |   }   | AltGr |-------------------| Menu  | Muet  | Vol-  | Vol+  | Play  |       |  Ctl  |
- * |       |       |       |       |       |       |  ADJ  |
+ * |   "   |   !   |   @   |   #   |   $   |   %   |-----------------------------------|   ^   |   &   |   *   |   (   |   )   | Supp  |
+ * |  < >  |   \   |   -   |   =   |   [   |   ]   |-----------------------------------| Debut |  Maj  |  Ctl  |  Alt  |  Win  |  Fin  |
+ * |       |   |   |   _   |   +   |   {   |   }   | AltGr |-------------------| Menu  | Muet  | Vol-  | Vol+  | Play  |   ~   |  Ctl  |
+ *                         |       |       |       |       |           |  ADJ  |
  */
             bindings = <
-&kp INS    &kp SLASH   &kp RA(N0) &kp RA(N3) &kp RBKT   &kp LS(SQT)                                       &kp LBKT   &kp N1     &kp BSLH &kp N5     &kp MINUS  &kp DEL
-&none      &kp RA(N8)  &kp N6     &kp EQUAL  &kp RA(N5) &kp RA(MINUS)                                     &kp HOME   &kp RSHFT  &kp RCTRL    &kp LALT   &kp RGUI   &kp END
-&trans     &kp RA(N6)  &kp N8     &kp LS(EQUAL) &kp RA(N4) &kp RA(EQUAL) &sk RALT                 &kp K_APP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_PP &none      &kp RCTRL
-                       &trans     &trans     &trans     &mo ADJ_L                                     &trans     &trans     &trans     &trans
+&kp N3           &kp SLASH   &kp RA(N0) &kp RA(N3)    &kp RBKT   &kp LS(SQT)                                                  &kp LBKT   &kp N1       &kp BSLH     &kp N5     &kp MINUS  &kp DEL
+&kp NON_US_BSLH  &kp RA(N8)  &kp N6     &kp EQUAL     &kp RA(N5) &kp RA(MINUS)                                                &kp HOME   &kp RSHFT    &kp RCTRL    &kp LALT   &kp RGUI   &kp END
+&trans           &kp RA(N6)  &kp N8     &kp LS(EQUAL) &kp RA(N4) &kp RA(EQUAL) &sk RALT                            &kp K_APP  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_PP   &kp RA(N2) &kp RCTRL
+                                                &trans     &trans        &trans     &mo ADJ_L     &trans     &trans     &trans     &trans
             >;
             sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
