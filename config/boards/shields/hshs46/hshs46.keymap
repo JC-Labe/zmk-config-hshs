@@ -79,14 +79,14 @@
  * -------------------------------------------------------------------------------------------------------------------------------------
  * |   è   |   A   |   Z   |   E   |   R   |   T   |-----------------------------------|   Y   |   U   |   I   |   O   |   P   | BKSPC |
  * |   é   |   Q   |   S   |   D   |   F   |   G   |-----------------------------------|   H   |   J   |   K   |   L   |   M   | ENTER |
- * | Ctl/' |   W   |   X   |   C   |   V   |   B   |  ESC  |-------------------| CAPS  |   ,   |   n   |   .   |   :   |   !   |   ù   |
+ * | Ctl/' |   W   |   X   |   C   |   V   |   B   |  ESC  |-------------------| CAPS  |   ,   |   n   |  . ;  |  : /  |  ! §  |   ù   |
  *                                 |  GUI  |  ALT  |SK SHFT|  Nav  |---|  Sym  | SPACE |  Nav  |  ALT  |
  */
 
                         bindings = <
 &kp  N7       &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
 &kp  N2       &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
-&mt LCTRL N4  &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  M        &kp  N        &kp  LS(COMMA) &kp  DOT      &kp  SLASH    &kp  SQT
+&mt LCTRL N4  &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  ESC                                           &caps_word    &kp  M        &kp  N        &kp  LS(COMMA) &kp dot_semi &kp  SLASH    &kp  SQT
                                                         &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &mo  NAV_L    &kp  LALT
                         >;
 
